@@ -3,81 +3,220 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yash Gujre | Product Manager Portfolio</title>
+  <title>Yash Gujre | Product Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
   <header class="site-header">
-    <div class="container header-wrap">
-      <a class="brand" href="index.html"><span class="logo-mark">YG</span><span class="logo-text">Yash Gujre</span></a>
+    <div class="shell nav-row">
+      <a class="brand" href="#overview">Yash Gujre</a>
       <button class="nav-toggle" data-nav-toggle aria-label="Toggle navigation">Menu</button>
-      <nav class="site-nav" data-nav>
-        <a class="active" href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="experience.html">Skills</a>
-        <a href="templates.html">Templates</a>
-        <a href="blog.html">Blog</a>
-        <a href="ai-agents.html">AI Agents</a>
-        <a href="contact.html">Contact</a>
+      <nav class="nav-pills" data-nav>
+        <a href="#overview" class="active">Overview</a>
+        <a href="#metrics">Metrics</a>
+        <a href="#experience">Experience</a>
+        <a href="#case-studies">Case Studies</a>
+        <a href="#framework">Framework</a>
+        <a href="#testimonials">Testimonial</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero hero-split">
-      <article class="hero-main">
-        <span class="kicker">Product Manager Portfolio</span>
-        <h1>I build products that move the needle.</h1>
-        <p class="subtitle">Product Manager with 5+ years shipping platforms across healthcare, fintech, and pharma. I turn ambiguous problems into measurable outcomes: $3.5M ROI, 292% return, and 22% default reduction.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="case-studies.html">View Case Studies</a>
-          <a class="btn btn-ghost" href="contact.html">Start Conversation</a>
+  <main>
+    <section id="overview" class="section hero shell reveal" data-delay="0">
+      <div class="grid-12">
+        <div class="col-8">
+          <p class="eyebrow">Product Strategy and Execution</p>
+          <h1>I build enterprise products that turn complexity into measurable outcomes.</h1>
+          <p class="lead">Product Manager with 5+ years across healthcare, fintech, pharma, and operations platforms. I focus on discovery, prioritization, and execution systems that improve adoption, speed, and business impact.</p>
+          <a class="btn btn-primary" href="#contact">Start a conversation</a>
         </div>
-      </article>
-      <aside class="hero-side">
-        <h3>Recent Outcomes</h3>
-        <div class="chips">
-          <span class="chip">93% onboarding time reduction</span>
-          <span class="chip">$1.3M avoided medical costs</span>
-          <span class="chip">22% credit default reduction</span>
-          <span class="chip">95% manual review reduction</span>
-        </div>
-      </aside>
+      </div>
     </section>
 
-    <section class="section grid grid-4">
-      <article class="card stat"><div class="stat-value">$3.5M</div><div class="stat-label">Business Value Delivered</div></article>
-      <article class="card stat"><div class="stat-value">292%</div><div class="stat-label">Highest ROI Achieved</div></article>
-      <article class="card stat"><div class="stat-value">5+</div><div class="stat-label">Years in PM</div></article>
-      <article class="card stat"><div class="stat-value">50+</div><div class="stat-label">Partners Scaled</div></article>
+    <section id="metrics" class="section section-divider shell reveal" data-delay="100">
+      <div class="grid-12 metrics-grid">
+        <article class="metric-card col-3">
+          <p class="metric-value">$3.5M</p>
+          <p class="metric-label">Business value delivered</p>
+        </article>
+        <article class="metric-card col-3">
+          <p class="metric-value">292%</p>
+          <p class="metric-label">Highest ROI outcome</p>
+        </article>
+        <article class="metric-card col-3">
+          <p class="metric-value">93%</p>
+          <p class="metric-label">Onboarding time reduction</p>
+        </article>
+        <article class="metric-card col-3">
+          <p class="metric-value">22%</p>
+          <p class="metric-label">Default rate reduction</p>
+        </article>
+      </div>
     </section>
 
-    <section class="section">
-      <h2>Success Stories</h2>
-      <div class="grid grid-3">
-        <article class="card story-card">
-          <div class="story-visual">Healthcare Platform</div>
-          <h3>Centene Care Coordination</h3>
-          <p>Reduced referral acknowledgment from 4.2 days to 1.1 days and improved SLA compliance to 96%.</p>
+    <section id="experience" class="section section-divider shell reveal" data-delay="200">
+      <div class="grid-12">
+        <div class="col-12">
+          <h2>Industry Experience</h2>
+        </div>
+        <div class="col-12 timeline">
+          <article class="timeline-item">
+            <div class="timeline-year">2025-Present</div>
+            <div>
+              <h3>Healthcare Platform</h3>
+              <p>Built B2B care coordination product flows for partner operations.</p>
+              <p class="impact">93% onboarding time reduction</p>
+              <p class="process">Process: user interviews, workflow redesign, and controlled A/B testing.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-year">2024-2025</div>
+            <div>
+              <h3>Nonprofit Healthcare Operations</h3>
+              <p>Shipped grant and compliance workflow platform with cross-team reporting.</p>
+              <p class="impact">68% to 91% renewal performance improvement</p>
+              <p class="process">Process: stakeholder mapping, compliance-first requirements, phased delivery.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-year">2023-2024</div>
+            <div>
+              <h3>Pharma Supply Chain Visibility</h3>
+              <p>Launched reconciliation and visibility capability across fragmented systems.</p>
+              <p class="impact">292% ROI increase</p>
+              <p class="process">Process: systems discovery, orchestration design, KPI dashboard rollout.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-year">2022-2023</div>
+            <div>
+              <h3>Fintech Decisioning Infrastructure</h3>
+              <p>Built API-first credit decisioning product for high-volume B2B transactions.</p>
+              <p class="impact">8-12% conversion lift with 22% lower defaults</p>
+              <p class="process">Process: risk model collaboration, API requirements, staged launch.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="case-studies" class="section section-divider shell reveal" data-delay="300">
+      <div class="grid-12">
+        <div class="col-12">
+          <h2>Case Study Previews</h2>
+        </div>
+
+        <article class="case-card col-4">
+          <img src="assets/case-healthcare.svg" alt="Healthcare platform case preview" />
+          <div class="case-body">
+            <h3>Care Coordination Workflow</h3>
+            <p>Re-architected onboarding and referral orchestration for partner teams.</p>
+            <p class="impact">145% throughput improvement</p>
+            <div class="tag-row">
+              <span class="tag">Healthcare</span>
+              <span class="tag">B2B Platform</span>
+              <span class="tag">Operations</span>
+            </div>
+            <a href="#contact" class="text-link">View case study</a>
+          </div>
         </article>
-        <article class="card story-card">
-          <div class="story-visual">Supply Chain Analytics</div>
-          <h3>Galderma SCOUT</h3>
-          <p>Delivered 292% ROI and $3.5M quantified impact through supply-chain orchestration and visibility.</p>
+
+        <article class="case-card col-4">
+          <img src="assets/case-fintech.svg" alt="Fintech decisioning case preview" />
+          <div class="case-body">
+            <h3>Credit Decisioning Product</h3>
+            <p>Designed real-time API-led decision flows with measurable risk controls.</p>
+            <p class="impact">22% default reduction</p>
+            <div class="tag-row">
+              <span class="tag">Fintech</span>
+              <span class="tag">Decisioning</span>
+              <span class="tag">API First</span>
+            </div>
+            <a href="#contact" class="text-link">View case study</a>
+          </div>
         </article>
-        <article class="card story-card">
-          <div class="story-visual">Fintech Decisioning</div>
-          <h3>Capital One Credit Platform</h3>
-          <p>Drove 8-12% conversion lift and 22% default reduction with real-time B2B credit decisioning.</p>
+
+        <article class="case-card col-4">
+          <img src="assets/case-supply.svg" alt="Supply chain analytics case preview" />
+          <div class="case-body">
+            <h3>Supply Chain Visibility</h3>
+            <p>Built reconciliation and dashboarding to accelerate operational decisions.</p>
+            <p class="impact">292% ROI increase</p>
+            <div class="tag-row">
+              <span class="tag">Pharma</span>
+              <span class="tag">Analytics</span>
+              <span class="tag">Enterprise</span>
+            </div>
+            <a href="#contact" class="text-link">View case study</a>
+          </div>
         </article>
+      </div>
+    </section>
+
+    <section id="framework" class="section section-divider shell reveal" data-delay="400">
+      <div class="grid-12">
+        <div class="col-12">
+          <h2>Delivery Framework</h2>
+        </div>
+
+        <div class="col-12 process-row">
+          <article class="process-step">
+            <div class="step-badge">1</div>
+            <h3>Discover</h3>
+            <p>Qualitative interviews, workflow observation, and baseline KPI definition.</p>
+          </article>
+          <article class="process-step">
+            <div class="step-badge">2</div>
+            <h3>Prioritize</h3>
+            <p>Impact-effort scoring with risk controls and dependency mapping.</p>
+          </article>
+          <article class="process-step">
+            <div class="step-badge">3</div>
+            <h3>Deliver</h3>
+            <p>Structured releases with clear acceptance criteria and stakeholder alignment.</p>
+          </article>
+          <article class="process-step">
+            <div class="step-badge">4</div>
+            <h3>Optimize</h3>
+            <p>Experimentation, usage analytics, and iterative roadmap refinement.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="section section-divider shell reveal" data-delay="500">
+      <div class="grid-12">
+        <div class="col-10 testimonial-block">
+          <p class="quote">"Yash combines strategic thinking with operating discipline. He can move from ambiguous problem framing to shipping measurable outcomes without losing stakeholder alignment."</p>
+          <p class="quote-attribution">Director, Enterprise Platform Operations</p>
+          <img src="assets/logo-enterprise.svg" alt="Enterprise Platform Group logo" class="company-logo" />
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-divider shell reveal" data-delay="600">
+      <div class="grid-12 contact-row">
+        <div class="col-7">
+          <h2>Let’s discuss your product challenges.</h2>
+          <p class="lead">Open to product strategy, platform PM, and transformation initiatives focused on measurable business outcomes.</p>
+        </div>
+        <div class="col-5 contact-actions">
+          <a class="btn btn-primary full-mobile" href="mailto:yashgujre.7@gmail.com">Email Yash</a>
+          <a class="btn btn-secondary full-mobile" href="https://www.linkedin.com/in/yashgujre28" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">© 2026 Yash Gujre. Product management is about outcomes, not outputs.</div>
+  <footer class="footer shell">
+    <p>© 2026 Yash Gujre</p>
   </footer>
+
   <script src="assets/site.js"></script>
 </body>
 </html>
