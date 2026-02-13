@@ -237,6 +237,12 @@ p {
   margin-top: 6px;
 }
 
+.exp-label {
+  margin-top: 12px;
+  color: var(--heading);
+  font-weight: 600;
+}
+
 .case-card {
   border: 1px solid var(--divider);
   background: var(--surface);
@@ -350,32 +356,6 @@ p {
   place-items: center;
   font-weight: 600;
   margin-bottom: 16px;
-}
-
-.testimonial-block {
-  border: 1px solid var(--divider);
-  background: var(--surface);
-  border-radius: var(--radius);
-  padding: 36px;
-}
-
-.quote {
-  font-size: clamp(1.5rem, 2.3vw, 2rem);
-  color: var(--heading);
-  line-height: 1.4;
-  letter-spacing: -0.01em;
-}
-
-.quote-attribution {
-  margin-top: 18px;
-  color: var(--body);
-  font-weight: 500;
-}
-
-.company-logo {
-  margin-top: 16px;
-  width: 210px;
-  filter: grayscale(100%);
 }
 
 .contact-row {

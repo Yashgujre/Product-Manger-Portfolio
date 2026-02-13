@@ -27,7 +27,7 @@ const revealObserver = new IntersectionObserver(
 
 reveals.forEach((node) => revealObserver.observe(node));
 
-const sectionIds = ['overview', 'metrics', 'experience', 'case-studies', 'framework', 'testimonials', 'contact'];
+const sectionIds = ['overview', 'metrics', 'experience', 'case-studies', 'framework', 'contact'];
 const navLinks = Array.from(document.querySelectorAll('.nav-pills a'));
 
 const setActive = () => {
