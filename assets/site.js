@@ -47,3 +47,34 @@ const setActive = () => {
 
 setActive();
 window.addEventListener('scroll', setActive);
+
+const caseModal = document.getElementById('case-modal');
+const caseLinks = document.querySelectorAll('[data-case-link]');
+const caseModalClose = document.querySelector('[data-case-modal-close]');
+
+const closeCaseModal = () => {
+  if (!caseModal) return;
+  caseModal.setAttribute('aria-hidden', 'true');
+};
+
+const openCaseModal = () => {
+  if (!caseModal) return;
+  caseModal.setAttribute('aria-hidden', 'false');
+};
+
+caseLinks.forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    openCaseModal();
+  });
+});
+
+if (caseModalClose) {
+  caseModalClose.addEventListener('click', closeCaseModal);
+}
+
+if (caseModal) {
+  caseModal.addEventListener('click', (event) => {
+    if (event.target === caseModal) closeCaseModal();
+  });
+}
