@@ -73,3 +73,141 @@ if (caseModal) {
     if (event.target === caseModal) closeCaseModal();
   });
 }
+
+const parseMetricValue = (value) => {
+  const num = Number(value);
+  return Number.isFinite(num) ? num : 0;
+};
+
+const animateCounter = (el) => {
+  const target = parseMetricValue(el.textContent.trim());
+  if (target === 0) return;
+  const prefix = el.dataset.prefix || '';
+  const suffix = el.dataset.suffix || '';
+  const decimals = String(target).includes('.') ? 1 : 0;
+  const duration = 1100;
+  const start = performance.now();
+
+  const tick = (now) => {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const value = (target * eased).toFixed(decimals);
+    el.textContent = `${prefix}${value}${suffix}`;
+    if (progress < 1) requestAnimationFrame(tick);
+  };
+
+  requestAnimationFrame(tick);
+};
+
+const counterEls = document.querySelectorAll('[data-counter]');
+if (counterEls.length) {
+  const seen = new WeakSet();
+  const counterObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || seen.has(entry.target)) return;
+        seen.add(entry.target);
+        animateCounter(entry.target);
+      });
+    },
+    { threshold: 0.25 }
+  );
+  counterEls.forEach((el) => counterObserver.observe(el));
+}
+
+const progressEls = document.querySelectorAll('[data-progress]');
+if (progressEls.length) {
+  const progressObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const value = entry.target.getAttribute('data-progress') || '0';
+        entry.target.style.width = `${Math.min(Number(value), 100)}%`;
+        progressObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.2 }
+  );
+  progressEls.forEach((el) => progressObserver.observe(el));
+}
+
+const expandButtons = document.querySelectorAll('[data-expand-btn]');
+expandButtons.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const panel = btn.parentElement?.querySelector('[data-expand-panel]');
+    if (!panel) return;
+    const open = panel.classList.toggle('open');
+    btn.textContent = open ? 'Hide metric breakdown' : 'View full metric breakdown';
+  });
+});
+
+const filterButtons = document.querySelectorAll('[data-filter]');
+const metricCards = document.querySelectorAll('[data-metric-cards] .product-metric-card');
+const metricSearch = document.querySelector('[data-metric-search]');
+
+const applyMetricFilters = () => {
+  const activeFilter = document.querySelector('[data-filter].active')?.dataset.filter || 'all';
+  const query = (metricSearch?.value || '').trim().toLowerCase();
+
+  metricCards.forEach((card) => {
+    const categories = card.dataset.cardCats || '';
+    const haystack = card.dataset.cardText || '';
+    const categoryMatch = activeFilter === 'all' || categories.includes(activeFilter);
+    const queryMatch = !query || haystack.includes(query);
+    card.classList.toggle('hidden-by-filter', !(categoryMatch && queryMatch));
+  });
+};
+
+filterButtons.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    filterButtons.forEach((b) => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyMetricFilters();
+  });
+});
+
+if (metricSearch) {
+  metricSearch.addEventListener('input', applyMetricFilters);
+}
+
+applyMetricFilters();
+
+const roiInvestment = document.querySelector('[data-roi-investment]');
+const roiBenefit = document.querySelector('[data-roi-benefit]');
+const roiYears = document.querySelector('[data-roi-years]');
+const roiResult = document.querySelector('[data-roi-result]');
+
+const updateRoi = () => {
+  if (!roiInvestment || !roiBenefit || !roiYears || !roiResult) return;
+  const investment = Number(roiInvestment.value) || 0;
+  const benefit = Number(roiBenefit.value) || 0;
+  const years = Number(roiYears.value) || 1;
+  const totalInvestment = investment * years;
+  const totalBenefit = benefit * years;
+  const roi = totalInvestment > 0 ? ((totalBenefit - totalInvestment) / totalInvestment) * 100 : 0;
+  roiResult.textContent = `${Math.round(roi)}%`;
+};
+
+[roiInvestment, roiBenefit, roiYears].forEach((input) => {
+  if (input) input.addEventListener('input', updateRoi);
+});
+updateRoi();
+
+const rotator = document.querySelector('[data-rotator]');
+if (rotator) {
+  const messages = [
+    'Operational speed gains of 30-40% in critical workflows',
+    'Up to 292% ROI delivered in enterprise operating environments',
+    'Risk reduction and compliance controls sustained at scale',
+    'Reliability performance maintained at 99.7% to 99.98% uptime',
+  ];
+  let i = 0;
+  setInterval(() => {
+    i = (i + 1) % messages.length;
+    rotator.style.opacity = '0';
+    setTimeout(() => {
+      rotator.querySelector('span').textContent = messages[i];
+      rotator.style.opacity = '1';
+    }, 170);
+  }, 2600);
+}

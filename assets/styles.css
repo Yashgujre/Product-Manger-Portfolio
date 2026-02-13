@@ -1075,3 +1075,365 @@ p {
     width: 100%;
   }
 }
+
+/* Metrics Experience */
+.metrics-hero-panel {
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  background: var(--surface);
+  padding: 40px;
+}
+
+.metrics-aggregate-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.metric-card-lg {
+  padding: 20px;
+}
+
+.rotating-highlight {
+  margin-top: 20px;
+  border-left: 3px solid var(--accent);
+  padding: 10px 0 10px 14px;
+  color: var(--heading);
+  font-weight: 500;
+}
+
+.metrics-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filter-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  border: 1px solid var(--divider);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--body);
+  padding: 8px 14px;
+  font: inherit;
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.filter-chip.active,
+.filter-chip:hover {
+  background: #1b2a44;
+  color: #d9e6ff;
+  border-color: #325081;
+}
+
+.metric-search {
+  min-width: 280px;
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font: inherit;
+  background: var(--surface);
+  color: var(--heading);
+}
+
+.product-metrics-grid {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.product-metric-card {
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  background: var(--surface);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out, border-color 200ms ease-in-out;
+}
+
+.product-metric-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
+  border-color: #35517f;
+}
+
+.story-strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.metrics-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.kpi {
+  border: 1px solid var(--divider);
+  border-radius: 6px;
+  background: #172238;
+  padding: 14px;
+}
+
+.kpi span {
+  display: block;
+  font-size: 28px;
+  line-height: 1.1;
+  color: var(--success);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.kpi small {
+  display: block;
+  margin-top: 6px;
+  color: var(--body);
+  font-size: 13px;
+}
+
+.progress-list {
+  display: grid;
+  gap: 10px;
+}
+
+.progress-row {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.progress-row span {
+  color: var(--body);
+  font-size: 14px;
+}
+
+.progress-row b {
+  color: var(--heading);
+  font-size: 14px;
+}
+
+.progress-track {
+  border-radius: 999px;
+  background: #1a2740;
+  height: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #35517f, #5b8dff);
+  transition: width 900ms ease-in-out;
+}
+
+.expand-btn {
+  align-self: flex-start;
+  border: 1px solid var(--divider);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--heading);
+  padding: 10px 14px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.expand-panel {
+  border-top: 1px dashed var(--divider);
+  padding-top: 12px;
+  display: none;
+}
+
+.expand-panel.open {
+  display: block;
+}
+
+.compare-block {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.compare-block > div {
+  border: 1px solid var(--divider);
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.compare-block p {
+  font-size: 13px;
+}
+
+.compare-block strong {
+  color: var(--heading);
+  display: block;
+  margin-top: 4px;
+}
+
+.roi-widget,
+.growth-panel {
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  background: var(--surface);
+  padding: 24px;
+}
+
+.roi-form {
+  margin-top: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.roi-form label {
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.roi-form input {
+  border: 1px solid var(--divider);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font: inherit;
+  background: #172238;
+  color: #dbe7ff;
+}
+
+.roi-output {
+  margin-top: 12px;
+  border-top: 1px solid var(--divider);
+  padding-top: 10px;
+}
+
+.roi-output strong {
+  color: var(--success);
+  font-size: 30px;
+  font-variant-numeric: tabular-nums;
+}
+
+.trend-bars {
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.trend-bars div {
+  display: grid;
+  grid-template-columns: 58px 70px 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.trend-bars span {
+  color: var(--body);
+  font-size: 13px;
+}
+
+.trend-bars b {
+  color: var(--heading);
+  font-size: 14px;
+}
+
+.trend-bars i {
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #1d4ed8, #10b981);
+}
+
+.impact-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.impact-timeline article {
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  background: var(--surface);
+  padding: 18px;
+}
+
+.impact-timeline span {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.impact-timeline p {
+  margin-top: 8px;
+}
+
+.compact-kpi-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.product-metric-card.hidden-by-filter {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .metrics-aggregate-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .product-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics-kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .impact-timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .compact-kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .metrics-hero-panel {
+    padding: 24px;
+  }
+
+  .story-strip,
+  .compare-block {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .metrics-kpi-grid,
+  .metrics-aggregate-grid,
+  .impact-timeline,
+  .compact-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-search {
+    min-width: 0;
+    width: 100%;
+  }
+}
