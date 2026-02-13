@@ -1,8 +1,12 @@
-const toggle = document.querySelector("[data-nav-toggle]");
-const nav = document.querySelector("[data-nav]");
+const toggle = document.querySelector('[data-nav-toggle]');
+const nav = document.querySelector('[data-nav]');
 
 if (toggle && nav) {
-  toggle.addEventListener("click", () => {
-    nav.classList.toggle("open");
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+
+  nav.querySelectorAll('a').forEach((a) => {
+    a.addEventListener('click', () => nav.classList.remove('open'));
   });
 }
