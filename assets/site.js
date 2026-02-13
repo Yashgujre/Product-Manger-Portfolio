@@ -80,9 +80,7 @@ const parseMetricValue = (value) => {
 };
 
 const animateCounter = (el) => {
-  const source = el.dataset.target || el.textContent.trim();
-  const target = parseMetricValue(source);
-  if (!el.dataset.target) el.dataset.target = source;
+  const target = parseMetricValue(el.textContent.trim());
   if (target === 0) return;
   const prefix = el.dataset.prefix || '';
   const suffix = el.dataset.suffix || '';
@@ -95,11 +93,7 @@ const animateCounter = (el) => {
     const eased = 1 - Math.pow(1 - progress, 3);
     const value = (target * eased).toFixed(decimals);
     el.textContent = `${prefix}${value}${suffix}`;
-    if (progress < 1) {
-      requestAnimationFrame(tick);
-    } else {
-      el.dataset.animated = 'true';
-    }
+    if (progress < 1) requestAnimationFrame(tick);
   };
 
   requestAnimationFrame(tick);
@@ -137,6 +131,27 @@ if (progressEls.length) {
   progressEls.forEach((el) => progressObserver.observe(el));
 }
 
+const roiInvestment = document.querySelector('[data-roi-investment]');
+const roiBenefit = document.querySelector('[data-roi-benefit]');
+const roiYears = document.querySelector('[data-roi-years]');
+const roiResult = document.querySelector('[data-roi-result]');
+
+const updateRoi = () => {
+  if (!roiInvestment || !roiBenefit || !roiYears || !roiResult) return;
+  const investment = Number(roiInvestment.value) || 0;
+  const benefit = Number(roiBenefit.value) || 0;
+  const years = Number(roiYears.value) || 1;
+  const totalInvestment = investment * years;
+  const totalBenefit = benefit * years;
+  const roi = totalInvestment > 0 ? ((totalBenefit - totalInvestment) / totalInvestment) * 100 : 0;
+  roiResult.textContent = `${Math.round(roi)}%`;
+};
+
+[roiInvestment, roiBenefit, roiYears].forEach((input) => {
+  if (input) input.addEventListener('input', updateRoi);
+});
+updateRoi();
+
 const rotator = document.querySelector('[data-rotator]');
 if (rotator) {
   const messages = [
@@ -154,238 +169,4 @@ if (rotator) {
       rotator.style.opacity = '1';
     }, 170);
   }, 2600);
-}
-
-const experienceCards = Array.from(document.querySelectorAll('.experience-card'));
-if (experienceCards.length) {
-  const viewedProjects = new Set();
-  const progressEl = document.querySelector('[data-exp-progress]');
-  const activeFiltersEl = document.querySelector('[data-active-filters]');
-
-  const industryButtons = Array.from(document.querySelectorAll('[data-filter-industry]'));
-  const impactButtons = Array.from(document.querySelectorAll('[data-filter-impact]'));
-  const searchInput = document.querySelector('[data-exp-search]');
-  const roiInput = document.querySelector('[data-exp-roi]');
-  const roiLabel = document.querySelector('[data-exp-roi-value]');
-
-  const filterState = {
-    industry: 'all',
-    impact: 'all',
-    roi: 0,
-    query: '',
-  };
-
-  const updateViewedProgress = () => {
-    if (!progressEl) return;
-    progressEl.textContent = `${viewedProjects.size} / ${experienceCards.length}`;
-  };
-
-  const collapseCard = (card) => {
-    const panel = card.querySelector('.experience-expanded');
-    if (!panel) return;
-    panel.hidden = true;
-    card.classList.remove('expanded');
-  };
-
-  const expandCard = (card) => {
-    experienceCards.forEach((otherCard) => {
-      if (otherCard !== card) collapseCard(otherCard);
-    });
-    const panel = card.querySelector('.experience-expanded');
-    if (!panel) return;
-    panel.hidden = false;
-    card.classList.add('expanded');
-    const cardId = card.getAttribute('id');
-    if (cardId) viewedProjects.add(cardId);
-    updateViewedProgress();
-
-    panel.querySelectorAll('[data-counter]').forEach((counterEl) => {
-      if (counterEl.dataset.animated === 'true') return;
-      animateCounter(counterEl);
-    });
-  };
-
-  experienceCards.forEach((card) => {
-    const openBtn = card.querySelector('[data-exp-open]');
-    const closeBtn = card.querySelector('[data-exp-close]');
-
-    if (openBtn) {
-      openBtn.addEventListener('click', () => expandCard(card));
-    }
-
-    if (closeBtn) {
-      closeBtn.addEventListener('click', () => collapseCard(card));
-    }
-  });
-
-  experienceCards.forEach((card) => {
-    const journey = card.querySelector('[data-journey]');
-    if (!journey) return;
-    const nodes = Array.from(journey.querySelectorAll('.journey-node'));
-    const panels = Array.from(card.querySelectorAll('.journey-panel'));
-
-    nodes.forEach((node) => {
-      node.addEventListener('click', () => {
-        const target = node.getAttribute('data-step');
-        nodes.forEach((n) => n.classList.toggle('active', n === node));
-        panels.forEach((panel) => {
-          panel.classList.toggle('active', panel.getAttribute('data-step-panel') === target);
-        });
-      });
-    });
-  });
-
-  experienceCards.forEach((card) => {
-    const compareBlocks = card.querySelectorAll('[data-compare]');
-    compareBlocks.forEach((block) => {
-      const modeButtons = Array.from(block.querySelectorAll('[data-compare-mode]'));
-      const values = Array.from(block.querySelectorAll('[data-compare-value]'));
-
-      modeButtons.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const mode = btn.getAttribute('data-compare-mode') || 'before';
-          modeButtons.forEach((b) => b.classList.toggle('active', b === btn));
-          values.forEach((valueEl) => {
-            valueEl.textContent = mode === 'after' ? valueEl.dataset.after || '' : valueEl.dataset.before || '';
-          });
-        });
-      });
-    });
-  });
-
-  const setButtonGroupState = (buttons, targetValue, dataKey) => {
-    buttons.forEach((btn) => {
-      btn.classList.toggle('active', btn.dataset[dataKey] === targetValue);
-    });
-  };
-
-  const renderActiveFilterChips = () => {
-    if (!activeFiltersEl) return;
-    activeFiltersEl.innerHTML = '';
-
-    const chips = [];
-    if (filterState.industry !== 'all') {
-      chips.push({ key: 'industry', label: `Industry: ${filterState.industry}` });
-    }
-    if (filterState.impact !== 'all') {
-      chips.push({ key: 'impact', label: `Impact: ${filterState.impact}` });
-    }
-    if (filterState.roi > 0) {
-      chips.push({ key: 'roi', label: `Min ROI: ${filterState.roi}%` });
-    }
-    if (filterState.query) {
-      chips.push({ key: 'query', label: `Search: ${filterState.query}` });
-    }
-
-    chips.forEach((chip) => {
-      const node = document.createElement('span');
-      node.className = 'active-filter-chip';
-      node.innerHTML = `${chip.label} <button type=\"button\" data-clear-filter=\"${chip.key}\" aria-label=\"Remove ${chip.key} filter\">x</button>`;
-      activeFiltersEl.appendChild(node);
-    });
-  };
-
-  const applyExperienceFilters = () => {
-    experienceCards.forEach((card) => {
-      const industry = card.dataset.industry || '';
-      const impacts = (card.dataset.impact || '').split(' ');
-      const searchSource = (card.dataset.search || '').toLowerCase();
-      const roi = Number(card.dataset.roi || '0');
-
-      const matchIndustry = filterState.industry === 'all' || industry === filterState.industry;
-      const matchImpact = filterState.impact === 'all' || impacts.includes(filterState.impact);
-      const matchROI = roi >= filterState.roi;
-      const matchQuery = !filterState.query || searchSource.includes(filterState.query);
-
-      const visible = matchIndustry && matchImpact && matchROI && matchQuery;
-      card.classList.toggle('filtered-out', !visible);
-      if (!visible) collapseCard(card);
-    });
-
-    renderActiveFilterChips();
-  };
-
-  industryButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      filterState.industry = btn.dataset.filterIndustry || 'all';
-      setButtonGroupState(industryButtons, filterState.industry, 'filterIndustry');
-      applyExperienceFilters();
-    });
-  });
-
-  impactButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      filterState.impact = btn.dataset.filterImpact || 'all';
-      setButtonGroupState(impactButtons, filterState.impact, 'filterImpact');
-      applyExperienceFilters();
-    });
-  });
-
-  if (roiInput && roiLabel) {
-    const updateROI = () => {
-      filterState.roi = Number(roiInput.value || '0');
-      roiLabel.textContent = `${filterState.roi}%`;
-      applyExperienceFilters();
-    };
-    roiInput.addEventListener('input', updateROI);
-    updateROI();
-  }
-
-  if (searchInput) {
-    searchInput.addEventListener('input', () => {
-      filterState.query = searchInput.value.trim().toLowerCase();
-      applyExperienceFilters();
-    });
-  }
-
-  if (activeFiltersEl) {
-    activeFiltersEl.addEventListener('click', (event) => {
-      const target = event.target;
-      if (!(target instanceof HTMLElement)) return;
-      const key = target.getAttribute('data-clear-filter');
-      if (!key) return;
-
-      if (key === 'industry') {
-        filterState.industry = 'all';
-        setButtonGroupState(industryButtons, 'all', 'filterIndustry');
-      }
-      if (key === 'impact') {
-        filterState.impact = 'all';
-        setButtonGroupState(impactButtons, 'all', 'filterImpact');
-      }
-      if (key === 'roi' && roiInput && roiLabel) {
-        filterState.roi = 0;
-        roiInput.value = '0';
-        roiLabel.textContent = '0%';
-      }
-      if (key === 'query' && searchInput) {
-        filterState.query = '';
-        searchInput.value = '';
-      }
-
-      applyExperienceFilters();
-    });
-  }
-
-  updateViewedProgress();
-  applyExperienceFilters();
-
-  const experienceRotator = document.querySelector('[data-exp-rotator] span');
-  if (experienceRotator) {
-    const messages = [
-      'Challenge to outcome narrative with interactive method breakdown.',
-      'Open each project to inspect delivery process, governance, and results.',
-      'Use filters to compare outcomes by industry, impact type, and ROI threshold.',
-      'Every project maps challenge, solution journey, and quantifiable business impact.',
-    ];
-    let idx = 0;
-    setInterval(() => {
-      idx = (idx + 1) % messages.length;
-      experienceRotator.parentElement.style.opacity = '0';
-      setTimeout(() => {
-        experienceRotator.textContent = messages[idx];
-        experienceRotator.parentElement.style.opacity = '1';
-      }, 170);
-    }, 3000);
-  }
 }

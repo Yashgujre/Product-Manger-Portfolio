@@ -6,7 +6,7 @@
   <title>Yash Gujre | Experience</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
@@ -26,443 +26,58 @@
   </header>
 
   <main>
-    <section class="section shell reveal experience-stage" data-delay="40">
-      <div class="experience-hero-card">
-        <p class="eyebrow">Interactive Experience Showcase</p>
-        <h1>Enterprise Product Transformation Portfolio</h1>
-        <p class="lead">An immersive project-by-project view of challenge, operating model, and measurable outcomes across healthcare, fintech, and pharmaceutical operations.</p>
-
-        <div class="experience-hero-metrics">
-          <article>
-            <span data-counter>4</span>
-            <p>Products delivered at enterprise scale</p>
-          </article>
-          <article>
-            <span data-counter data-suffix="x">17</span>
-            <p>Peak intervention ROI</p>
-          </article>
-          <article>
-            <span data-counter data-prefix="$" data-suffix="M">3.5</span>
-            <p>Largest annual quantified benefit</p>
-          </article>
-          <article>
-            <span data-counter data-suffix="M+">2.5</span>
-            <p>Members supported in care platform</p>
-          </article>
+    <section id="experience" class="section section-divider shell reveal" data-delay="200">
+      <div class="grid-12">
+        <div class="col-12">
+          <h2>Industry Experience</h2>
         </div>
-
-        <div class="experience-hero-note" data-exp-rotator>
-          <span>Challenge to outcome narrative with interactive method breakdown.</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-divider shell reveal" data-delay="80">
-      <div class="experience-filter-bar">
-        <div class="filter-group" role="toolbar" aria-label="Industry filter">
-          <p>Industry</p>
-          <button class="exp-filter-btn active" data-filter-industry="all">All</button>
-          <button class="exp-filter-btn" data-filter-industry="healthcare">Healthcare</button>
-          <button class="exp-filter-btn" data-filter-industry="financial">Financial</button>
-          <button class="exp-filter-btn" data-filter-industry="pharma">Pharmaceutical</button>
-        </div>
-
-        <div class="filter-group" role="toolbar" aria-label="Impact filter">
-          <p>Impact Type</p>
-          <button class="exp-filter-btn active" data-filter-impact="all">All</button>
-          <button class="exp-filter-btn" data-filter-impact="operational">Operational</button>
-          <button class="exp-filter-btn" data-filter-impact="financial">Financial</button>
-          <button class="exp-filter-btn" data-filter-impact="compliance">Compliance</button>
-          <button class="exp-filter-btn" data-filter-impact="technical">Technical</button>
-        </div>
-
-        <div class="filter-group filter-group-wide">
-          <p>Metric Filter</p>
-          <label class="roi-range-wrap" for="experience-roi">Minimum ROI: <strong data-exp-roi-value>0%</strong></label>
-          <input id="experience-roi" type="range" min="0" max="300" step="10" value="0" data-exp-roi />
-          <label class="sr-only" for="experience-search">Search projects</label>
-          <input id="experience-search" type="search" placeholder="Search products, methods, or outcomes" data-exp-search />
-        </div>
-      </div>
-
-      <div class="active-filters" data-active-filters></div>
-
-      <div class="experience-layout">
-        <aside class="experience-toc">
-          <p class="toc-title">Project Navigation</p>
-          <a href="#project-care">Care Coordination</a>
-          <a href="#project-grants">Grant Management</a>
-          <a href="#project-credit">Trade Credit Decisioning</a>
-          <a href="#project-supply">Supply Chain Reconciliation</a>
-          <p class="toc-progress">Viewed: <span data-exp-progress>0 / 4</span></p>
-        </aside>
-
-        <div class="experience-projects">
-          <article id="project-care" class="experience-card" data-industry="healthcare" data-impact="operational financial compliance technical" data-roi="170" data-search="care coordination medicaid referral screening nonprofit hipaa workflow api experimentation">
-            <div class="experience-card-top">
-              <div>
-                <p class="industry-tag industry-healthcare">Healthcare Technology</p>
-                <h2>B2B Care Coordination Platform</h2>
-                <p class="card-subtitle">Medicaid care orchestration platform for nonprofit partner ecosystems.</p>
-              </div>
-              <div class="key-callout pulse-metric">
-                <strong>2.5M+</strong>
-                <span>Lives impacted</span>
-              </div>
-            </div>
-
-            <button class="explore-btn" data-exp-open>Explore Project</button>
-
-            <div class="experience-expanded" hidden>
-              <div class="expanded-header">
-                <p>Healthcare Technology / Care Delivery</p>
-                <button class="close-expanded" data-exp-close aria-label="Close project">Close</button>
-              </div>
-
-              <div class="story-grid">
-                <section class="story-block challenge-block">
-                  <h3>The Challenge</h3>
-                  <p>Nonprofit partners relied on email and spreadsheets to coordinate member interventions, causing delayed response cycles, duplicate actions, and weak measurement of outcomes.</p>
-                  <div class="warning-metrics">
-                    <article><span>4.2 days</span><p>Referral acknowledgment baseline</p></article>
-                    <article><span>72%</span><p>Behavioral screening completion baseline</p></article>
-                  </div>
-                </section>
-
-                <section class="story-block solution-block">
-                  <h3>The Solution Journey</h3>
-                  <div class="journey-line" data-journey>
-                    <button class="journey-node active" data-step="1">Research</button>
-                    <button class="journey-node" data-step="2">Workflow</button>
-                    <button class="journey-node" data-step="3">Platform</button>
-                    <button class="journey-node" data-step="4">Rollout</button>
-                  </div>
-                  <div class="journey-panels">
-                    <article class="journey-panel active" data-step-panel="1"><strong>Discovery and segmentation:</strong> partner interviews, referral friction mapping, and intervention latency scoring.</article>
-                    <article class="journey-panel" data-step-panel="2"><strong>Workflow design:</strong> care acknowledgment SLAs, role-based routing, and outcome instrumentation model.</article>
-                    <article class="journey-panel" data-step-panel="3"><strong>Build system:</strong> API integration, data modeling, and behavioral screening module release.</article>
-                    <article class="journey-panel" data-step-panel="4"><strong>Scale and optimize:</strong> A/B testing, release governance, and KPI reviews with partner operators.</article>
-                  </div>
-                </section>
-              </div>
-
-              <section class="impact-dashboard">
-                <h3>The Impact Dashboard</h3>
-                <div class="impact-metric-grid">
-                  <article><span data-counter data-suffix="%">74</span><p>Faster referral acknowledgment</p></article>
-                  <article><span data-counter data-suffix="%">95</span><p>SLA compliance</p></article>
-                  <article><span data-counter data-suffix="%">57</span><p>ER reduction in pilot cohort</p></article>
-                </div>
-                <div class="progress-list">
-                  <div class="progress-row"><span>Intervention turnaround</span><div class="progress-track"><div class="progress-fill" data-progress="40"></div></div><b>30-40% faster</b></div>
-                  <div class="progress-row"><span>Screening completion</span><div class="progress-track"><div class="progress-fill" data-progress="88"></div></div><b>72% -> 88%</b></div>
-                </div>
-              </section>
-
-              <section class="compare-panel" data-compare>
-                <div class="compare-head">
-                  <h3>Before / After</h3>
-                  <div class="compare-switch">
-                    <button class="active" data-compare-mode="before">Before</button>
-                    <button data-compare-mode="after">After</button>
-                  </div>
-                </div>
-                <div class="compare-grid">
-                  <article><p>Referral acknowledgment</p><strong data-compare-value data-before="4.2 days" data-after="1.1 days">4.2 days</strong></article>
-                  <article><p>Quality impact</p><strong data-compare-value data-before="$0 baseline" data-after="$10-15M">$0 baseline</strong></article>
-                  <article><p>Partner labor hours</p><strong data-compare-value data-before="Manual overhead" data-after="750+ hours saved / partner">Manual overhead</strong></article>
-                </div>
-              </section>
-
-              <details class="process-accordion">
-                <summary>Process deep dive</summary>
-                <div class="deep-dive-grid">
-                  <article><h4>Deliverables</h4><p>Service blueprint, API contracts, data model, experimentation backlog, GTM runbook.</p></article>
-                  <article><h4>Stakeholders</h4><p>Care operators, engineering, data science, compliance, and nonprofit partner leadership.</p></article>
-                  <article><h4>Governance</h4><p>Weekly delivery cadence, monthly performance review, quarterly roadmap checkpoints.</p></article>
-                </div>
-              </details>
-
-              <div class="benchmark-strip">
-                <p>Industry baseline: 60% SLA compliance</p>
-                <p>Achieved: <strong>95%</strong> SLA compliance</p>
-              </div>
+        <div class="col-12 timeline">
+          <article class="timeline-item">
+            <div class="timeline-year">Healthcare Technology</div>
+            <div>
+              <h3>B2B Care Coordination Platform</h3>
+              <p class="exp-label">The Problem</p>
+              <p>Nonprofit partners could not efficiently access Medicaid member care data. Manual coordination via emails and spreadsheets caused intervention delays, duplicated efforts, and prevented outcome measurement.</p>
+              <p class="exp-label">The Value</p>
+              <p class="impact">30-40% faster interventions, $18M in nonprofit grant renewals enabled, and $400K annual cost savings.</p>
+              <p class="exp-label">Process</p>
+              <p class="process">User Research -> Workflow Mapping -> API Integration -> Data Modeling -> A/B Testing -> GTM Planning -> KPI Instrumentation.</p>
             </div>
           </article>
-
-          <article id="project-grants" class="experience-card" data-industry="healthcare" data-impact="operational financial compliance" data-roi="145" data-search="grant management compliance audit risk renewal healthcare controls reporting">
-            <div class="experience-card-top">
-              <div>
-                <p class="industry-tag industry-healthcare">Healthcare Operations</p>
-                <h2>Grant Management and Compliance Platform</h2>
-                <p class="card-subtitle">Funding governance system for regulated care programs and renewals.</p>
-              </div>
-              <div class="key-callout">
-                <strong>78%</strong>
-                <span>Audit risk reduction</span>
-              </div>
-            </div>
-
-            <button class="explore-btn" data-exp-open>Explore Project</button>
-
-            <div class="experience-expanded" hidden>
-              <div class="expanded-header">
-                <p>Healthcare Operations / Compliance</p>
-                <button class="close-expanded" data-exp-close aria-label="Close project">Close</button>
-              </div>
-
-              <div class="story-grid">
-                <section class="story-block challenge-block">
-                  <h3>The Challenge</h3>
-                  <p>Fragmented spreadsheet-based grant workflows slowed reporting, weakened renewal readiness, and increased audit exposure for healthcare programs.</p>
-                  <div class="warning-metrics">
-                    <article><span>68%</span><p>Baseline renewal confidence</p></article>
-                    <article><span>High</span><p>Audit exception exposure</p></article>
-                  </div>
-                </section>
-
-                <section class="story-block solution-block">
-                  <h3>The Solution Journey</h3>
-                  <div class="journey-line" data-journey>
-                    <button class="journey-node active" data-step="1">Discovery</button>
-                    <button class="journey-node" data-step="2">Controls</button>
-                    <button class="journey-node" data-step="3">Delivery</button>
-                    <button class="journey-node" data-step="4">Optimization</button>
-                  </div>
-                  <div class="journey-panels">
-                    <article class="journey-panel active" data-step-panel="1"><strong>Stakeholder synthesis:</strong> interviews across grant ops, compliance, and program managers.</article>
-                    <article class="journey-panel" data-step-panel="2"><strong>Control mapping:</strong> HIPAA and reporting controls mapped to platform workflows.</article>
-                    <article class="journey-panel" data-step-panel="3"><strong>Phased releases:</strong> planning module, compliance evidence trail, and renewal forecasting.</article>
-                    <article class="journey-panel" data-step-panel="4"><strong>KPI management:</strong> operational scorecards and audit-readiness checkpoints.</article>
-                  </div>
-                </section>
-              </div>
-
-              <section class="impact-dashboard">
-                <h3>The Impact Dashboard</h3>
-                <div class="impact-metric-grid">
-                  <article><span data-counter data-suffix="%">30</span><p>Operational efficiency gain</p></article>
-                  <article><span data-counter data-suffix="%">28</span><p>Cost-per-patient reduction</p></article>
-                  <article><span data-counter data-suffix="%">91</span><p>Renewal attainment</p></article>
-                </div>
-                <div class="progress-list">
-                  <div class="progress-row"><span>Audit control mapping</span><div class="progress-track"><div class="progress-fill" data-progress="100"></div></div><b>100%</b></div>
-                  <div class="progress-row"><span>Platform reliability</span><div class="progress-track"><div class="progress-fill" data-progress="99.7"></div></div><b>99.7% uptime</b></div>
-                </div>
-              </section>
-
-              <section class="compare-panel" data-compare>
-                <div class="compare-head">
-                  <h3>Before / After</h3>
-                  <div class="compare-switch">
-                    <button class="active" data-compare-mode="before">Before</button>
-                    <button data-compare-mode="after">After</button>
-                  </div>
-                </div>
-                <div class="compare-grid">
-                  <article><p>Renewal rate</p><strong data-compare-value data-before="68%" data-after="91%">68%</strong></article>
-                  <article><p>Audit risk profile</p><strong data-compare-value data-before="Elevated" data-after="78% lower risk">Elevated</strong></article>
-                  <article><p>Operating efficiency</p><strong data-compare-value data-before="Manual tracking" data-after="30% gain">Manual tracking</strong></article>
-                </div>
-              </section>
-
-              <details class="process-accordion">
-                <summary>Process deep dive</summary>
-                <div class="deep-dive-grid">
-                  <article><h4>Deliverables</h4><p>Compliance matrix, PRD, rollout sequencing plan, KPI dictionary.</p></article>
-                  <article><h4>Tools and methods</h4><p>Workflow modeling, risk register, phased launch plans, stakeholder review loops.</p></article>
-                  <article><h4>Cadence</h4><p>Biweekly sprint demos, monthly risk reviews, quarterly renewal planning checkpoint.</p></article>
-                </div>
-              </details>
-
-              <div class="benchmark-strip">
-                <p>Industry baseline: 70% renewal confidence</p>
-                <p>Achieved: <strong>91%</strong> renewal rate</p>
-              </div>
+          <article class="timeline-item">
+            <div class="timeline-year">Healthcare Operations</div>
+            <div>
+              <h3>Grant Management and Compliance Platform</h3>
+              <p class="exp-label">The Problem</p>
+              <p>Grant operations relied on fragmented spreadsheets and manual tracking, which slowed reporting, increased audit risk, and made renewal planning unreliable for care programs.</p>
+              <p class="exp-label">The Value</p>
+              <p class="impact">68% to 91% renewal improvement, 78% audit risk reduction, and 30% operational efficiency gains.</p>
+              <p class="exp-label">Process</p>
+              <p class="process">Stakeholder Interviews -> Compliance Mapping -> PRD Authoring -> Workflow Design -> Data Integration -> Phased Releases -> KPI Reviews.</p>
             </div>
           </article>
-
-          <article id="project-credit" class="experience-card" data-industry="financial" data-impact="financial operational technical" data-roi="292" data-search="trade credit risk approvals conversion defaults decisioning latency auc automation">
-            <div class="experience-card-top">
-              <div>
-                <p class="industry-tag industry-financial">Financial Technology</p>
-                <h2>B2B Trade Credit Decisioning Platform</h2>
-                <p class="card-subtitle">Real-time approval engine for B2B checkout conversion and risk control.</p>
-              </div>
-              <div class="key-callout pulse-metric">
-                <strong>95%</strong>
-                <span>Manual review reduction</span>
-              </div>
-            </div>
-
-            <button class="explore-btn" data-exp-open>Explore Project</button>
-
-            <div class="experience-expanded" hidden>
-              <div class="expanded-header">
-                <p>Fintech / Credit Risk Operations</p>
-                <button class="close-expanded" data-exp-close aria-label="Close project">Close</button>
-              </div>
-
-              <div class="story-grid">
-                <section class="story-block challenge-block">
-                  <h3>The Challenge</h3>
-                  <p>Manual approvals required 2-7 days, increasing cart abandonment while inconsistent scoring caused avoidable defaults and revenue leakage.</p>
-                  <div class="warning-metrics">
-                    <article><span>2-7 days</span><p>Approval time baseline</p></article>
-                    <article><span>Low</span><p>Portfolio visibility consistency</p></article>
-                  </div>
-                </section>
-
-                <section class="story-block solution-block">
-                  <h3>The Solution Journey</h3>
-                  <div class="journey-line" data-journey>
-                    <button class="journey-node active" data-step="1">Risk Discovery</button>
-                    <button class="journey-node" data-step="2">Rules</button>
-                    <button class="journey-node" data-step="3">API Engine</button>
-                    <button class="journey-node" data-step="4">Monitoring</button>
-                  </div>
-                  <div class="journey-panels">
-                    <article class="journey-panel active" data-step-panel="1"><strong>Portfolio diagnosis:</strong> default drivers, false decline patterns, and response-time bottlenecks.</article>
-                    <article class="journey-panel" data-step-panel="2"><strong>Decision framework:</strong> risk rule matrix and exception policy design.</article>
-                    <article class="journey-panel" data-step-panel="3"><strong>System build:</strong> sub-500ms API engine with model scoring and auto-routing.</article>
-                    <article class="journey-panel" data-step-panel="4"><strong>Operational control:</strong> conversion, default, and latency monitoring by segment.</article>
-                  </div>
-                </section>
-              </div>
-
-              <section class="impact-dashboard">
-                <h3>The Impact Dashboard</h3>
-                <div class="impact-metric-grid">
-                  <article><span data-counter data-suffix="%">12</span><p>B2B conversion lift</p></article>
-                  <article><span data-counter data-suffix="%">22</span><p>Default reduction</p></article>
-                  <article><span data-counter data-prefix="$" data-suffix="M">1.6</span><p>Year 1 revenue impact</p></article>
-                </div>
-                <div class="progress-list">
-                  <div class="progress-row"><span>Model quality</span><div class="progress-track"><div class="progress-fill" data-progress="84"></div></div><b>0.84 AUC-ROC</b></div>
-                  <div class="progress-row"><span>System uptime</span><div class="progress-track"><div class="progress-fill" data-progress="99.98"></div></div><b>99.98%</b></div>
-                </div>
-              </section>
-
-              <section class="compare-panel" data-compare>
-                <div class="compare-head">
-                  <h3>Before / After</h3>
-                  <div class="compare-switch">
-                    <button class="active" data-compare-mode="before">Before</button>
-                    <button data-compare-mode="after">After</button>
-                  </div>
-                </div>
-                <div class="compare-grid">
-                  <article><p>Approval turnaround</p><strong data-compare-value data-before="2-7 days" data-after="Sub-500ms">2-7 days</strong></article>
-                  <article><p>Manual review load</p><strong data-compare-value data-before="High" data-after="95% automated">High</strong></article>
-                  <article><p>Credit exposure governance</p><strong data-compare-value data-before="Fragmented" data-after="$2.5B+ managed">Fragmented</strong></article>
-                </div>
-              </section>
-
-              <details class="process-accordion">
-                <summary>Process deep dive</summary>
-                <div class="deep-dive-grid">
-                  <article><h4>Deliverables</h4><p>Risk model spec, decision matrix, API contract pack, monitoring dashboard.</p></article>
-                  <article><h4>Teams</h4><p>Credit risk, finance ops, engineering, data science, and compliance controls.</p></article>
-                  <article><h4>Timeline</h4><p>Discovery, pilot rollout, staged automation, and ongoing risk tuning cycle.</p></article>
-                </div>
-              </details>
-
-              <div class="benchmark-strip">
-                <p>Industry baseline: 3-day B2B approval cycle</p>
-                <p>Achieved: <strong>Sub-500ms</strong> decision latency</p>
-              </div>
+          <article class="timeline-item">
+            <div class="timeline-year">Financial Technology</div>
+            <div>
+              <h3>B2B Trade Credit Risk Platform</h3>
+              <p class="exp-label">The Problem</p>
+              <p>Manual credit approvals took 2-7 days, creating checkout abandonment. Inconsistent risk assessment led to defaults or lost revenue, while finance teams lacked real-time portfolio visibility.</p>
+              <p class="exp-label">The Value</p>
+              <p class="impact">8-12% conversion lift, 22% default reduction, and 95% automation of manual reviews.</p>
+              <p class="exp-label">Process</p>
+              <p class="process">Risk Discovery -> API Design -> Decision Rule Modeling -> Data Pipeline Alignment -> Rollout Sequencing -> Performance Monitoring.</p>
             </div>
           </article>
-
-          <article id="project-supply" class="experience-card" data-industry="pharma" data-impact="operational financial technical" data-roi="292" data-search="supply chain reconciliation oracle fusion inventory reporting incidents visibility">
-            <div class="experience-card-top">
-              <div>
-                <p class="industry-tag industry-pharma">Pharmaceutical Operations</p>
-                <h2>Supply Chain Analytics and Reconciliation Module</h2>
-                <p class="card-subtitle">Cross-system reconciliation layer for post-ERP operational integrity.</p>
-              </div>
-              <div class="key-callout pulse-metric">
-                <strong>292%</strong>
-                <span>ROI delivered</span>
-              </div>
-            </div>
-
-            <button class="explore-btn" data-exp-open>Explore Project</button>
-
-            <div class="experience-expanded" hidden>
-              <div class="expanded-header">
-                <p>Pharmaceutical Operations / Supply Chain</p>
-                <button class="close-expanded" data-exp-close aria-label="Close project">Close</button>
-              </div>
-
-              <div class="story-grid">
-                <section class="story-block challenge-block">
-                  <h3>The Challenge</h3>
-                  <p>Post-ERP migration left fragmented data across warehouse and legacy systems, increasing reconciliation effort and delaying revenue recognition.</p>
-                  <div class="warning-metrics">
-                    <article><span>40 hrs/week</span><p>Manual reconciliation burden</p></article>
-                    <article><span>$8.2M</span><p>Working capital drag exposure</p></article>
-                  </div>
-                </section>
-
-                <section class="story-block solution-block">
-                  <h3>The Solution Journey</h3>
-                  <div class="journey-line" data-journey>
-                    <button class="journey-node active" data-step="1">Audit</button>
-                    <button class="journey-node" data-step="2">Architecture</button>
-                    <button class="journey-node" data-step="3">Modeling</button>
-                    <button class="journey-node" data-step="4">Governance</button>
-                  </div>
-                  <div class="journey-panels">
-                    <article class="journey-panel active" data-step-panel="1"><strong>System discovery:</strong> warehouse feed variance audit and reconciliation bottleneck mapping.</article>
-                    <article class="journey-panel" data-step-panel="2"><strong>Integration design:</strong> Oracle Fusion alignment and event normalization strategy.</article>
-                    <article class="journey-panel" data-step-panel="3"><strong>Logic rollout:</strong> reconciliation rules, exception handling, and dashboard design.</article>
-                    <article class="journey-panel" data-step-panel="4"><strong>Operating cadence:</strong> phased releases with governance checkpoints and KPI controls.</article>
-                  </div>
-                </section>
-              </div>
-
-              <section class="impact-dashboard">
-                <h3>The Impact Dashboard</h3>
-                <div class="impact-metric-grid">
-                  <article><span data-counter data-prefix="$" data-suffix="M">3.5</span><p>Annual quantified benefit</p></article>
-                  <article><span data-counter data-suffix="%">70</span><p>Reporting automation</p></article>
-                  <article><span data-counter data-suffix="%">60</span><p>Incident reduction</p></article>
-                </div>
-                <div class="progress-list">
-                  <div class="progress-row"><span>Manual reconciliation reduction</span><div class="progress-track"><div class="progress-fill" data-progress="90"></div></div><b>40 hrs -> 4 hrs</b></div>
-                  <div class="progress-row"><span>Inventory turnover improvement</span><div class="progress-track"><div class="progress-fill" data-progress="78"></div></div><b>7-day gain</b></div>
-                </div>
-              </section>
-
-              <section class="compare-panel" data-compare>
-                <div class="compare-head">
-                  <h3>Before / After</h3>
-                  <div class="compare-switch">
-                    <button class="active" data-compare-mode="before">Before</button>
-                    <button data-compare-mode="after">After</button>
-                  </div>
-                </div>
-                <div class="compare-grid">
-                  <article><p>Reconciliation effort</p><strong data-compare-value data-before="40 hrs/week" data-after="4 hrs/week">40 hrs/week</strong></article>
-                  <article><p>Compliance risk</p><strong data-compare-value data-before="$500K+ exposure" data-after="Risk eliminated">$500K+ exposure</strong></article>
-                  <article><p>Event operations</p><strong data-compare-value data-before="Fragmented" data-after="Unified event pipeline">Fragmented</strong></article>
-                </div>
-              </section>
-
-              <details class="process-accordion">
-                <summary>Process deep dive</summary>
-                <div class="deep-dive-grid">
-                  <article><h4>Deliverables</h4><p>Integration blueprint, reconciliation logic maps, analytics dashboard pack.</p></article>
-                  <article><h4>Dependencies</h4><p>ERP teams, warehouse ops, finance controls, data engineering.</p></article>
-                  <article><h4>Execution model</h4><p>Release phasing, incident governance, and operational scorecard reviews.</p></article>
-                </div>
-              </details>
-
-              <div class="benchmark-strip">
-                <p>Industry baseline: 20-30% reporting automation</p>
-                <p>Achieved: <strong>70%</strong> reporting automation</p>
-              </div>
+          <article class="timeline-item">
+            <div class="timeline-year">Pharmaceutical Operations</div>
+            <div>
+              <h3>Supply Chain Analytics and Reconciliation Module</h3>
+              <p class="exp-label">The Problem</p>
+              <p>Post-ERP migration left data fragmented across warehouse and legacy platforms. Finance teams spent disproportionate effort reconciling transactions, causing working capital drag and slower revenue recognition.</p>
+              <p class="exp-label">The Value</p>
+              <p class="impact">292% ROI ($3.5M benefit), major reduction in manual reconciliation effort, and improved inventory and compliance performance.</p>
+              <p class="exp-label">Process</p>
+              <p class="process">System Discovery -> Integration Architecture -> Reconciliation Data Modeling -> Dashboard Design -> Release Phasing -> Governance Cadence.</p>
             </div>
           </article>
         </div>
