@@ -11,6 +11,17 @@
   --transition: 240ms ease-in-out;
 }
 
+[data-theme="dark"] {
+  --heading: #e6edf8;
+  --body: #9fb0c8;
+  --accent: #5b8dff;
+  --success: #22c55e;
+  --bg: #0b1220;
+  --surface: #111a2b;
+  --divider: #24324a;
+  --divider-strong: #33425c;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -28,6 +39,7 @@ body {
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  transition: background-color var(--transition), color var(--transition);
 }
 
 h1,
@@ -71,6 +83,10 @@ p {
   background: rgba(255, 255, 255, 0.96);
   border-bottom: 1px solid var(--divider);
   backdrop-filter: blur(8px);
+}
+
+[data-theme="dark"] .site-header {
+  background: rgba(11, 18, 32, 0.94);
 }
 
 .nav-row {
@@ -121,6 +137,32 @@ p {
   background: #f8f9fa;
 }
 
+[data-theme="dark"] .nav-pills a:hover,
+[data-theme="dark"] .nav-pills a.active {
+  background: #172238;
+}
+
+.theme-toggle {
+  border: 1px solid var(--divider);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--heading);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background-color var(--transition), border-color var(--transition), color var(--transition);
+}
+
+.theme-toggle:hover {
+  background: #f8f9fa;
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  background: #1a2740;
+}
+
 .section {
   padding: 120px 0;
 }
@@ -163,6 +205,11 @@ p {
   flex-wrap: wrap;
 }
 
+[data-theme="dark"] .proof-bar,
+[data-theme="dark"] .case-metric-box {
+  background: #172238;
+}
+
 .proof-bar span {
   color: var(--heading);
   font-weight: 600;
@@ -189,7 +236,7 @@ p {
 .philosophy-card {
   border: 1px solid var(--divider);
   border-radius: 8px;
-  background: #fff;
+  background: var(--surface);
   padding: 28px;
   transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
@@ -210,7 +257,7 @@ p {
 .logo-strip {
   border: 1px solid var(--divider);
   border-radius: 8px;
-  background: #fff;
+  background: var(--surface);
   padding: 20px;
   display: flex;
   gap: 14px;
@@ -225,6 +272,11 @@ p {
   font-weight: 600;
   letter-spacing: 0.02em;
   filter: grayscale(100%);
+}
+
+[data-theme="dark"] .logo-wordmark {
+  border-color: #3a4a67;
+  color: #9fb0c8;
 }
 
 .grid-12 {
@@ -271,6 +323,10 @@ p {
 
 .btn-secondary:hover {
   background: #eff6ff;
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+  background: #1c2a44;
 }
 
 .metric-card {
@@ -363,7 +419,7 @@ p {
 }
 
 .case-showcase-card {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--divider);
   border-radius: 8px;
   padding: 40px;
@@ -457,6 +513,11 @@ p {
   padding: 12px 16px;
 }
 
+[data-theme="dark"] .case-tags {
+  color: #c2d0e6;
+  background: #1a2740;
+}
+
 .case-note {
   margin-top: 8px;
   font-size: 14px;
@@ -477,7 +538,7 @@ p {
   margin-top: 48px;
   border: 1px solid var(--divider);
   border-radius: 8px;
-  background: #fff;
+  background: var(--surface);
   padding: 24px;
 }
 
@@ -504,7 +565,7 @@ p {
   border: 1px solid var(--divider);
   border-radius: 8px;
   padding: 28px;
-  background: #fff;
+  background: var(--surface);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -584,7 +645,7 @@ p {
 .principle-card {
   border: 1px solid var(--divider);
   border-radius: 8px;
-  background: #fff;
+  background: var(--surface);
   padding: 20px;
 }
 
@@ -602,7 +663,7 @@ p {
 .framework-meta-card {
   border: 1px solid var(--divider);
   border-radius: 8px;
-  background: #fff;
+  background: var(--surface);
   padding: 28px;
 }
 
@@ -623,7 +684,7 @@ p {
 .start-card {
   border: 1px solid var(--divider);
   border-radius: 8px;
-  background: #fff;
+  background: var(--surface);
   padding: 20px;
 }
 
@@ -640,7 +701,7 @@ p {
 .faq-list details {
   border: 1px solid var(--divider);
   border-radius: 8px;
-  background: #fff;
+  background: var(--surface);
   padding: 16px 18px;
 }
 
@@ -657,7 +718,7 @@ p {
 .framework-cta {
   border: 1px solid var(--divider);
   border-radius: 8px;
-  background: #fff;
+  background: var(--surface);
   padding: 28px;
 }
 
@@ -696,6 +757,8 @@ p {
   border-radius: 6px;
   padding: 12px 14px;
   font: inherit;
+  color: var(--heading);
+  background: var(--surface);
 }
 
 .framework-about {
@@ -823,7 +886,7 @@ p {
 
 .case-modal-panel {
   width: min(100%, 520px);
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--divider);
   border-radius: 8px;
   padding: 32px;
@@ -923,6 +986,10 @@ p {
     border-top: 1px solid var(--divider);
     padding-top: 12px;
     margin-top: 6px;
+  }
+
+  .theme-toggle {
+    width: 100%;
   }
 
   .nav-pills.open {

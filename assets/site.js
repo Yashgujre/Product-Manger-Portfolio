@@ -1,5 +1,22 @@
 const navToggle = document.querySelector('[data-nav-toggle]');
 const nav = document.querySelector('[data-nav]');
+const themeToggle = document.querySelector('[data-theme-toggle]');
+const themeLabel = document.querySelector('[data-theme-label]');
+
+const getInitialTheme = () => {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light' || savedTheme === 'dark') return savedTheme;
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
+  return 'light';
+};
+
+const setTheme = (theme) => {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+  if (themeLabel) themeLabel.textContent = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+};
+
+setTheme(getInitialTheme());
 
 if (navToggle && nav) {
   navToggle.addEventListener('click', () => {
@@ -8,6 +25,13 @@ if (navToggle && nav) {
 
   nav.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => nav.classList.remove('open'));
+  });
+}
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    setTheme(currentTheme === 'dark' ? 'light' : 'dark');
   });
 }
 
