@@ -3,9 +3,10 @@
   --body: #64748b;
   --accent: #2563eb;
   --success: #10b981;
-  --bg: #fafafa;
+  --bg: #ffffff;
   --surface: #ffffff;
   --divider: #e5e7eb;
+  --divider-strong: #d9dee7;
   --radius: 8px;
   --transition: 240ms ease-in-out;
 }
@@ -25,6 +26,8 @@ body {
   color: var(--body);
   font-size: 17px;
   line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 h1,
@@ -33,7 +36,7 @@ h3 {
   margin: 0;
   color: var(--heading);
   letter-spacing: -0.02em;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 h1 {
@@ -65,8 +68,9 @@ p {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(250, 250, 250, 0.96);
+  background: rgba(255, 255, 255, 0.96);
   border-bottom: 1px solid var(--divider);
+  backdrop-filter: blur(8px);
 }
 
 .nav-row {
@@ -82,6 +86,7 @@ p {
   font-weight: 700;
   color: var(--heading);
   letter-spacing: -0.01em;
+  font-size: 18px;
 }
 
 .nav-toggle {
@@ -121,7 +126,7 @@ p {
 }
 
 .section-divider {
-  border-top: 1px solid var(--divider);
+  border-top: 1px solid var(--divider-strong);
 }
 
 .hero {
@@ -159,7 +164,7 @@ p {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   border-radius: 6px;
   padding: 12px 24px;
   transition: background-color var(--transition), border-color var(--transition), color var(--transition);
@@ -190,7 +195,14 @@ p {
   border: 1px solid var(--divider);
   background: var(--surface);
   border-radius: var(--radius);
-  padding: 24px;
+  padding: 26px;
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.metric-card:hover {
+  border-color: #cfd8e5;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(10, 22, 40, 0.05);
 }
 
 .metric-value {
@@ -219,6 +231,12 @@ p {
   background: var(--surface);
   border-radius: var(--radius);
   padding: 24px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.timeline-item:hover {
+  border-color: #cfd8e5;
+  box-shadow: 0 4px 10px rgba(10, 22, 40, 0.05);
 }
 
 .timeline-year {
@@ -234,13 +252,15 @@ p {
 }
 
 .process {
-  margin-top: 6px;
+  margin-top: 8px;
+  color: #475569;
 }
 
 .exp-label {
   margin-top: 12px;
   color: var(--heading);
   font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .case-card {
@@ -344,6 +364,13 @@ p {
   background: var(--surface);
   border-radius: var(--radius);
   padding: 22px;
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.process-step:hover {
+  border-color: #cfd8e5;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(10, 22, 40, 0.05);
 }
 
 .step-badge {
