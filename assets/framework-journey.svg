@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" fill="none">
+  <rect width="1200" height="780" fill="#FAFAFA"/>
+  <circle cx="600" cy="390" r="268" stroke="#E5E7EB" stroke-width="4"/>
+
+  <path d="M340 390L375 260L470 165L600 130L730 165L825 260L860 390L825 520L730 615L600 650L470 615L375 520Z" stroke="#E5E7EB" stroke-width="3"/>
+
+  <circle cx="340" cy="390" r="40" fill="#1565C0"/><text x="340" y="397" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">1</text>
+  <circle cx="375" cy="520" r="40" fill="#1E88E5"/><text x="375" y="527" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">2</text>
+  <circle cx="470" cy="615" r="40" fill="#00ACC1"/><text x="470" y="622" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">3</text>
+  <circle cx="600" cy="650" r="40" fill="#5E35B1"/><text x="600" y="657" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">4</text>
+  <circle cx="730" cy="615" r="40" fill="#7E57C2"/><text x="730" y="622" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">5</text>
+  <circle cx="825" cy="520" r="40" fill="#AB47BC"/><text x="825" y="527" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">6</text>
+  <circle cx="860" cy="390" r="40" fill="#E65100"/><text x="860" y="397" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">7</text>
+  <circle cx="825" cy="260" r="40" fill="#FF6F00"/><text x="825" y="267" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">8</text>
+  <circle cx="730" cy="165" r="40" fill="#FFA726"/><text x="730" y="172" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">9</text>
+  <circle cx="600" cy="130" r="40" fill="#2E7D32"/><text x="600" y="137" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">10</text>
+  <circle cx="470" cy="165" r="40" fill="#43A047"/><text x="470" y="172" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">11</text>
+  <circle cx="375" cy="260" r="40" fill="#26A69A"/><text x="375" y="267" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">12</text>
+
+  <circle cx="600" cy="390" r="118" fill="white" stroke="#E5E7EB" stroke-width="3"/>
+  <text x="600" y="368" text-anchor="middle" fill="#0A1628" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">12-Phase</text>
+  <text x="600" y="402" text-anchor="middle" fill="#0A1628" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Product</text>
+  <text x="600" y="436" text-anchor="middle" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="500">Delivery Journey</text>
+
+  <text x="286" y="394" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="end">Market Discovery</text>
+  <text x="346" y="562" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="end">Product Strategy</text>
+  <text x="448" y="673" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="middle">Competitive Analysis</text>
+  <text x="600" y="712" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="middle">Experience Design</text>
+  <text x="748" y="673" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="middle">Technical Feasibility</text>
+  <text x="861" y="562" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="start">Requirements</text>
+  <text x="915" y="394" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="start">Roadmapping</text>
+  <text x="866" y="228" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="start">Execution</text>
+  <text x="748" y="108" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="middle">Quality and Validation</text>
+  <text x="600" y="72" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="middle">Go-To-Market</text>
+  <text x="452" y="108" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="middle">Measurement</text>
+  <text x="339" y="228" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="end">Iteration and Scale</text>
+</svg>
