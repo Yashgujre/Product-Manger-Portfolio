@@ -43,37 +43,6 @@ navLinks.forEach((link) => {
   link.classList.toggle('active', targetPath === currentPath);
 });
 
-const caseModal = document.getElementById('case-modal');
-const caseLinks = document.querySelectorAll('[data-case-link]');
-const caseModalClose = document.querySelector('[data-case-modal-close]');
-
-const closeCaseModal = () => {
-  if (!caseModal) return;
-  caseModal.setAttribute('aria-hidden', 'true');
-};
-
-const openCaseModal = () => {
-  if (!caseModal) return;
-  caseModal.setAttribute('aria-hidden', 'false');
-};
-
-caseLinks.forEach((link) => {
-  link.addEventListener('click', (event) => {
-    event.preventDefault();
-    openCaseModal();
-  });
-});
-
-if (caseModalClose) {
-  caseModalClose.addEventListener('click', closeCaseModal);
-}
-
-if (caseModal) {
-  caseModal.addEventListener('click', (event) => {
-    if (event.target === caseModal) closeCaseModal();
-  });
-}
-
 const parseMetricValue = (value) => {
   const match = String(value).match(/-?\d+(\.\d+)?/);
   if (!match) return 0;
