@@ -143,6 +143,8 @@ const roiInvestment = document.querySelector('[data-roi-investment]');
 const roiBenefit = document.querySelector('[data-roi-benefit]');
 const roiYears = document.querySelector('[data-roi-years]');
 const roiResult = document.querySelector('[data-roi-result]');
+const calculatorSelect = document.querySelector('[data-calculator-select]');
+const calculatorTitle = document.querySelector('[data-calculator-title]');
 
 const updateRoi = () => {
   if (!roiInvestment || !roiBenefit || !roiYears || !roiResult) return;
@@ -159,6 +161,14 @@ const updateRoi = () => {
   if (input) input.addEventListener('input', updateRoi);
 });
 updateRoi();
+
+if (calculatorSelect && calculatorTitle) {
+  const updateCalculatorTitle = () => {
+    calculatorTitle.textContent = calculatorSelect.value;
+  };
+  calculatorSelect.addEventListener('change', updateCalculatorTitle);
+  updateCalculatorTitle();
+}
 
 const rotator = document.querySelector('[data-rotator]');
 if (rotator) {

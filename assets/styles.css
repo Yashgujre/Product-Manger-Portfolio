@@ -1311,6 +1311,44 @@ p {
   gap: 14px;
 }
 
+.calculator-panel {
+  max-width: 720px;
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  background: var(--surface);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.calculator-label {
+  display: block;
+  color: var(--heading);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.calculator-select {
+  width: 100%;
+  border: 1px solid var(--divider);
+  border-radius: 6px;
+  padding: 11px 12px;
+  font: inherit;
+  color: var(--heading);
+  background: var(--surface);
+}
+
+.calculator-result {
+  margin-top: 14px;
+  border-top: 1px solid var(--divider);
+  padding-top: 12px;
+}
+
+.calculator-result-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 .roi-form {
   margin-top: 16px;
   display: grid;

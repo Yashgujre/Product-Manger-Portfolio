@@ -29,7 +29,24 @@
     <section class="section shell reveal" data-delay="0">
       <p class="eyebrow">Tools</p>
       <h1>Calculators</h1>
-      <p class="lead">Central place for ROI and financial planning calculators.</p>
+      <p class="lead">Select a calculator to view the active case type.</p>
+      <div class="calculator-panel">
+        <label class="calculator-label" for="calculator-select">Choose calculator</label>
+        <select id="calculator-select" class="calculator-select" data-calculator-select>
+          <option value="Product design">Product design</option>
+          <option value="Product improvement">Product improvement</option>
+          <option value="Analytical cases">Analytical cases</option>
+          <option value="Estimation strategy cases">Estimation strategy cases</option>
+          <option value="GTM system design and trade-off execution planning">GTM system design and trade-off execution planning</option>
+          <option value="Crisis risk response">Crisis risk response</option>
+          <option value="Customer journey mapping">Customer journey mapping</option>
+          <option value="Cost benefit analysis">Cost benefit analysis</option>
+        </select>
+        <div class="calculator-result" data-calculator-result>
+          <p class="calculator-result-label">Selected calculator</p>
+          <h3 data-calculator-title>Product design</h3>
+        </div>
+      </div>
       <div class="overview-cta-row">
         <a class="btn btn-primary" href="metrics.html">Back to Metrics</a>
       </div>
