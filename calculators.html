@@ -49,8 +49,20 @@
 
         <div class="calculator-builder" data-product-design-builder>
           <h3>Product Design Inputs</h3>
-          <p>Choose inputs below and generate a detailed case study.</p>
+          <p>Choose inputs below, add custom context, and generate a detailed case study.</p>
           <div class="calculator-grid">
+            <label class="calculator-label" for="pd-product">Product name</label>
+            <select id="pd-product" class="calculator-select" data-pd-product>
+              <option value="TaskFlow">TaskFlow</option>
+              <option value="CareBridge">CareBridge</option>
+              <option value="FinPilot">FinPilot</option>
+              <option value="PulseCommerce">PulseCommerce</option>
+              <option value="custom">Custom product name</option>
+            </select>
+
+            <label class="calculator-label" for="pd-product-custom">Custom product name (optional)</label>
+            <input id="pd-product-custom" class="calculator-input" type="text" data-pd-product-custom placeholder="e.g., Sarovai Coach" />
+
             <label class="calculator-label" for="pd-user-type">User type</label>
             <select id="pd-user-type" class="calculator-select" data-pd-user-type>
               <option value="consumer">Consumer</option>
@@ -112,12 +124,17 @@
               <option value="low">Low</option>
               <option value="high">High</option>
             </select>
+
+            <label class="calculator-label" for="pd-problem">Problem statement (optional)</label>
+            <textarea id="pd-problem" class="calculator-input calculator-textarea" data-pd-problem placeholder="What is the core problem this product solves?"></textarea>
+
+            <label class="calculator-label" for="pd-notes">Additional notes (optional)</label>
+            <textarea id="pd-notes" class="calculator-input calculator-textarea" data-pd-notes placeholder="Context, constraints, interviewer signals, domain details, etc."></textarea>
           </div>
 
           <button class="btn btn-primary" type="button" data-pd-generate>Generate Case Study</button>
           <article class="case-study-output" data-pd-output hidden>
-            <h3>Generated Product Design Case Study</h3>
-            <pre data-pd-output-text></pre>
+            <div data-pd-output-text></div>
           </article>
         </div>
       </div>

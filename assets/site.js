@@ -207,7 +207,17 @@ const pdValue = (key) => {
   return node ? node.value : '';
 };
 
+const escapeHtml = (value) =>
+  String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+
 const buildProductDesignCaseStudy = () => {
+  const productPick = pdValue('product') || 'TaskFlow';
+  const productCustom = (pdValue('product-custom') || '').trim();
   const userType = pdValue('user-type') || 'consumer';
   const scale = pdValue('scale') || 'unknown';
   const goal = pdValue('goal') || 'engagement';
@@ -216,6 +226,10 @@ const buildProductDesignCaseStudy = () => {
   const timeline = pdValue('timeline') || '6-12';
   const state = pdValue('state') || 'scratch';
   const savvy = pdValue('savvy') || 'moderate';
+  const problem = (pdValue('problem') || '').trim();
+  const notes = (pdValue('notes') || '').trim();
+
+  const productName = productPick === 'custom' && productCustom ? productCustom : productPick === 'custom' ? 'Product (custom)' : productPick;
 
   const resolvedType = userType === 'you-decide' ? 'consumer (assumed)' : userType;
   const scaleNarrative = scale === 'gt1m' ? 'large-scale audience with network effects opportunities' : scale === 'lt100k' ? 'smaller audience where personalization drives value' : 'mid-to-large audience with balanced growth and product depth';
@@ -241,14 +255,110 @@ const buildProductDesignCaseStudy = () => {
     ? 'Fragmented tooling causes slow execution, handoff delays, and reporting blind spots.'
     : 'Current workflow feels high effort, inconsistent, and hard to trust during critical moments.';
 
-  const output = `1) Phase 1 - Clarify the Question\nTarget users: ${resolvedType}. Scale: ${scaleNarrative}\nPrimary goal: ${pdGoalLabel[goal] || 'Engagement'}\nNorth-star metric options: ${northStars.join('; ')}\nConstraints summary: ${budgetNarrative} ${timelineNarrative}\nPlatform direction: ${platformNarrative}\nProduct state: ${stateNarrative}\nDefaults applied: ${userType === 'you-decide' ? 'User type defaulted to consumer. ' : ''}${scale === 'unknown' ? 'Scale defaulted to ~1M behavior profile. ' : ''}${budget === 'unknown' ? 'Budget defaulted to moderate.' : ''}\n\n2) Phase 2 - Identify Users & Pain Points\nPrimary persona: ${persona}\nTop pain points:\n- ${pain}\n- Users struggle to reach value quickly during onboarding and first core action.\n- Existing alternatives do not provide clear feedback loops.\nUser needs:\n- As a user, I want a guided setup so that I can reach first value quickly.\n- As a user, I want transparent status and recommendations so that I can act confidently.\n- As a user, I want low-friction recovery when something fails so that I do not abandon the flow.\nPersona logic: ${savvyNarrative}\n\n3) Phase 3 - Prioritize Features (RICE)\nFeature A: Guided onboarding + first-success milestone\n- Reach: ${reach}, Impact: ${impactTop}, Confidence: ${confidence}, Effort: ${effortTop}\n- RICE score: ${topScore}\nFeature B: Smart recommendations and next-best action feed\n- Reach: ${reach}, Impact: 2, Confidence: 0.8, Effort: 1\n- RICE score: ${secondaryScore}\nDecision: Prioritize top 1-2 features for MVP, defer lower-score enhancements.\nSuccess metric tie: Optimize ${northStars[0]} as primary KPI.\n\n4) Phase 4 - Brainstorm Solutions\nConcept 1: Adaptive onboarding path that changes by persona and intent.\nConcept 2: Context-aware dashboard showing progress, blockers, and next steps.\nConcept 3: Recovery assistant for failure states with one-tap remediation.\nConcept 4: Nudges and reminders tied to incomplete core actions.\nConcept 5: Collaboration/share hook for referrals or team handoffs.\nTrade-off notes: ${virality}\n\n5) Phase 5 - Define Metrics & Success\nPrimary KPI target: Improve ${northStars[0]} by 20% in first 90 days.\nSupporting KPIs: ${northStars[1]}; ${northStars[2]}\nGuardrails: Error rate, support tickets per 1k users, task completion drop-off.\nAccessibility success criteria: Keyboard navigation coverage and screen-reader flow validation for core paths.\n\n6) Phase 6 - Design the Flow\nHappy path (5 steps):\n1. User lands and chooses intent.\n2. User completes guided setup with minimal required fields.\n3. User reaches first milestone and sees immediate value confirmation.\n4. System recommends next best action based on profile/context.\n5. User completes core action and gets progress summary.\nEdge cases:\n- No internet or service disruption -> save progress and retry queue.\n- Validation/auth failure -> clear error recovery with pre-filled context.\nEmotional outcome: User feels confident, supported, and in control.\n\n7) Phase 7 - Rollout & Risks\nRollout plan:\n- Phase 1 (MVP pilot): Launch feature A to limited cohort.\n- Phase 2 (Iterate): Tune onboarding friction, recommendation relevance, and error recovery.\n- Phase 3 (Scale): Expand to full audience and introduce advanced optimization.\nRisks and mitigations:\n- Technical integration risk -> instrumentation-first rollout and fallback paths.\n- Adoption risk -> A/B test onboarding variants and monitor conversion funnels.\n- Compliance/accessibility risk -> pre-launch audits and continuous guardrail checks.\n\n8) Phase 8 - Final Summary\nFor ${persona}, prioritized features focus on reducing friction and accelerating time-to-value.\nRecommended solution combines guided onboarding, contextual recommendations, and resilient recovery flows.\nThis balances user needs, feasibility, and impact, with expected uplift on ${northStars[0]} and measurable quality guardrails.\nRollout is phased to reduce risk while preserving speed.\nNext step: run pilot experiment design and baseline KPI instrumentation before full launch.`;
+  const problemLine = problem || `${productName} users face fragmented journeys that reduce confidence and repeat usage.`;
+  const notesLine = notes ? `<p><strong>Custom context included:</strong> ${escapeHtml(notes)}</p>` : '<p><strong>Custom context included:</strong> None provided.</p>';
+  const defaultsApplied = `${userType === 'you-decide' ? 'User type defaulted to consumer. ' : ''}${scale === 'unknown' ? 'Scale defaulted to ~1M behavior profile. ' : ''}${budget === 'unknown' ? 'Budget defaulted to moderate.' : 'No budget default applied.'}`;
 
-  return output;
+  return `
+    <div class="pd-report">
+      <header class="pd-report-header">
+        <h3>Generated Product Design Case Study: ${escapeHtml(productName)}</h3>
+        <p>${escapeHtml(problemLine)}</p>
+      </header>
+
+      <section class="pd-report-section">
+        <h4>1) Phase 1 - Clarify the Question</h4>
+        <div class="pd-report-grid">
+          <p><strong>Target users:</strong> ${escapeHtml(resolvedType)}</p>
+          <p><strong>Scale:</strong> ${escapeHtml(scaleNarrative)}</p>
+          <p><strong>Primary goal:</strong> ${escapeHtml(pdGoalLabel[goal] || 'Engagement')}</p>
+          <p><strong>Platform:</strong> ${escapeHtml(platformNarrative)}</p>
+          <p><strong>Constraints:</strong> ${escapeHtml(`${budgetNarrative} ${timelineNarrative}`)}</p>
+          <p><strong>Product state:</strong> ${escapeHtml(stateNarrative)}</p>
+        </div>
+        <p><strong>Defaults applied:</strong> ${escapeHtml(defaultsApplied)}</p>
+      </section>
+
+      <section class="pd-report-section">
+        <h4>2) Phase 2 - Identify Users & Pain Points</h4>
+        <p><strong>Primary persona:</strong> ${escapeHtml(persona)}</p>
+        <ul>
+          <li>${escapeHtml(pain)}</li>
+          <li>Users struggle to reach value quickly during onboarding and first core action.</li>
+          <li>Existing alternatives do not provide clear feedback loops.</li>
+        </ul>
+        <p><strong>Persona logic:</strong> ${escapeHtml(savvyNarrative)}</p>
+      </section>
+
+      <section class="pd-report-section">
+        <h4>3) Phase 3 - Prioritize Features (RICE)</h4>
+        <p><strong>Feature A:</strong> Guided onboarding + first-success milestone</p>
+        <p>Reach ${reach} | Impact ${impactTop} | Confidence ${confidence} | Effort ${effortTop} | <strong>Score ${topScore}</strong></p>
+        <p><strong>Feature B:</strong> Smart recommendations + next-best action feed</p>
+        <p>Reach ${reach} | Impact 2 | Confidence 0.8 | Effort 1 | <strong>Score ${secondaryScore}</strong></p>
+        <p><strong>Decision:</strong> Prioritize top 1-2 features for MVP and tie success to ${escapeHtml(northStars[0])}.</p>
+      </section>
+
+      <section class="pd-report-section">
+        <h4>4) Phase 4 - Brainstorm Solutions</h4>
+        <ul>
+          <li>Adaptive onboarding path based on user intent and readiness.</li>
+          <li>Context-aware dashboard with progress, blockers, and recommended next action.</li>
+          <li>Recovery assistant for failure states with one-tap remediation.</li>
+          <li>Nudges/reminders for incomplete core actions.</li>
+          <li>Collaboration/share hooks for team handoff or referrals.</li>
+        </ul>
+        <p><strong>Trade-off note:</strong> ${escapeHtml(virality)}</p>
+      </section>
+
+      <section class="pd-report-section">
+        <h4>5) Phase 5 - Define Metrics & Success</h4>
+        <p><strong>Primary KPI target:</strong> Improve ${escapeHtml(northStars[0])} by 20% in 90 days.</p>
+        <span class="pd-kpi-chip">${escapeHtml(northStars[0])}</span>
+        <span class="pd-kpi-chip">${escapeHtml(northStars[1])}</span>
+        <span class="pd-kpi-chip">${escapeHtml(northStars[2])}</span>
+        <p><strong>Guardrails:</strong> Error rate, drop-off, support tickets/1k users, accessibility pass rate.</p>
+      </section>
+
+      <section class="pd-report-section">
+        <h4>6) Phase 6 - Design the Flow</h4>
+        <ol>
+          <li>User lands and selects intent.</li>
+          <li>User completes guided setup with minimum required inputs.</li>
+          <li>User reaches first milestone and sees value confirmation.</li>
+          <li>System recommends next-best action based on context.</li>
+          <li>User completes core action and gets progress summary.</li>
+        </ol>
+        <p><strong>Edge cases:</strong> Offline retry queue; authentication/validation recovery.</p>
+        <p><strong>Emotional design:</strong> User should feel confident, reassured, and in control.</p>
+      </section>
+
+      <section class="pd-report-section">
+        <h4>7) Phase 7 - Rollout & Risks</h4>
+        <ol>
+          <li>MVP pilot for early cohort.</li>
+          <li>Iteration cycle using feedback + experiment readouts.</li>
+          <li>Scale rollout with instrumentation and reliability controls.</li>
+        </ol>
+        <ul>
+          <li><strong>Technical risk:</strong> Integration complexity. Mitigation: phased integration + fallback routes.</li>
+          <li><strong>Adoption risk:</strong> Low engagement. Mitigation: A/B onboarding variants and targeted nudges.</li>
+          <li><strong>Compliance risk:</strong> Accessibility and policy gaps. Mitigation: pre-launch audits and guardrails.</li>
+        </ul>
+      </section>
+
+      <section class="pd-report-section">
+        <h4>8) Phase 8 - Final Summary</h4>
+        <p>For ${escapeHtml(persona)}, ${escapeHtml(productName)} should prioritize friction reduction and fast time-to-value. The recommended direction combines guided onboarding, contextual recommendations, and resilient recovery. This balances impact, feasibility, and user trust while targeting measurable improvement on ${escapeHtml(northStars[0])}.</p>
+        ${notesLine}
+      </section>
+    </div>
+  `;
 };
 
 if (pdGenerateBtn && pdOutput && pdOutputText) {
   pdGenerateBtn.addEventListener('click', () => {
-    pdOutputText.textContent = buildProductDesignCaseStudy();
+    pdOutputText.innerHTML = buildProductDesignCaseStudy();
     pdOutput.hidden = false;
   });
 }
