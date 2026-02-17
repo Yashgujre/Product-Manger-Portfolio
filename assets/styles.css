@@ -321,6 +321,11 @@ p {
   border: 2px solid var(--accent);
 }
 
+.btn-compact {
+  padding: 8px 14px;
+  font-size: 14px;
+}
+
 .btn-secondary:hover {
   background: #eff6ff;
 }
@@ -1299,6 +1304,13 @@ p {
   padding: 24px;
 }
 
+.roi-widget-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
 .roi-form {
   margin-top: 16px;
   display: grid;
@@ -1437,6 +1449,11 @@ p {
   .impact-timeline,
   .compact-kpi-grid {
     grid-template-columns: 1fr;
+  }
+
+  .roi-widget-head {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
