@@ -1597,19 +1597,20 @@ p {
 .xp-workspace {
   margin-top: 22px;
   display: grid;
-  grid-template-columns: 250px 1fr;
+  grid-template-columns: 1fr;
   gap: 22px;
   align-items: start;
 }
 
 .xp-sidebar {
-  position: sticky;
-  top: 96px;
+  position: static;
   border: 1px solid #2f425f;
   border-radius: 12px;
   padding: 16px;
   background: rgba(10, 19, 33, 0.9);
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 12px;
 }
 
@@ -1622,7 +1623,8 @@ p {
 }
 
 .xp-view-buttons {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
@@ -1649,7 +1651,8 @@ p {
 }
 
 .xp-jump-links {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: 7px;
 }
 
@@ -1666,8 +1669,9 @@ p {
 }
 
 .xp-progress {
-  padding-top: 10px;
-  border-top: 1px solid #2b415f;
+  padding-top: 0;
+  border-top: 0;
+  margin-left: auto;
   color: #9bb0ce;
   font-size: 14px;
 }
@@ -1691,7 +1695,7 @@ p {
 
 .xp-canvas.view-matrix,
 .xp-canvas.view-comparison {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
 }
 
 .xp-card {
