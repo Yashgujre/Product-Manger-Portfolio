@@ -503,6 +503,13 @@ p {
   color: var(--body);
 }
 
+.case-metric-context {
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #64748b;
+}
+
 .case-key-outcome {
   font-size: 16px;
   color: var(--heading);
@@ -594,6 +601,24 @@ p {
   letter-spacing: -0.01em;
   margin-top: 0;
   margin-bottom: 12px;
+}
+
+.case-pm-perspective {
+  border-left: 4px solid #10b981;
+  background:
+    linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(16, 185, 129, 0) 55%),
+    #f3faf7;
+}
+
+[data-theme="dark"] .case-metric-context {
+  color: #93a6bf;
+}
+
+[data-theme="dark"] .case-pm-perspective {
+  border-left-color: #34d399;
+  background:
+    linear-gradient(135deg, rgba(52, 211, 153, 0.18) 0%, rgba(52, 211, 153, 0) 60%),
+    #112235;
 }
 
 .case-card-list {
